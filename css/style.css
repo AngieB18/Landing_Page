@@ -1,0 +1,133 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fffaf3;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* ====== HOJA DE VIDA ====== */
+#hoja-de-vida {
+  margin: 40px auto;
+}
+
+.cv-container {
+  background: linear-gradient(135deg, #ffd6e0, #fff0f5);
+  padding: 35px;
+  max-width: 500px;
+  margin: 0 auto 50px auto;
+  border-radius: 25px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.perfil-grande {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #ff9ec4;
+  margin-bottom: 20px;
+}
+
+.nombre-cv {
+  font-size: 2.5em;
+  color: #d6336c;
+  margin: 10px 0;
+}
+
+.cv-info {
+  font-size: 1.1em;
+  color: #555;
+  margin: 8px 0;
+}
+
+.descripcion {
+  font-size: 1em;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #ffcce5;
+  color: #6a1b4d;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.cv-link:hover {
+  background: #ffd6ec;
+}
+
+/* ====== FORMULARIO ====== */
+#formulario-section {
+  max-width: 500px;
+  margin: 0 auto 60px auto;
+  background: #fff0f5;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+#formulario-section h2 {
+  margin-bottom: 20px;
+  color: #d6336c;
+  font-size: 1.8em;
+}
+
+/* campos */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+}
+
+form input {
+  width: 90%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #e3cdd7;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+input.error {
+  border-color: #e63946;
+  background: #ffe6e6;
+}
+
+input.valido {
+  border-color: #2a9d8f;
+  background: #e6f5f2;
+}
+
+form span.error {
+  color: #e63946;
+  font-size: 0.9em;
+}
+
+form button {
+  margin-top: 25px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 15px;
+  background: #6a1b4d;
+  color: white;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+
+form button:hover:not(:disabled) {
+  background: #8f235c;
+}
