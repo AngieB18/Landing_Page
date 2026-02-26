@@ -55,40 +55,42 @@ secciones.forEach(section => {
 
 
 /* =====================================================
-   FORMULARIO PROFESIONAL
+   FORMULARIO DE RESEÑAS → SE AGREGA A TESTIMONIOS
 ===================================================== */
 
-const formulario = document.querySelector("form");
+const formReseña = document.getElementById("form-reseña");
 
-if (formulario) {
+if (formReseña) {
 
-    formulario.addEventListener("submit", function (e) {
+    formReseña.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const nombre = formulario.querySelector("input[type='text']");
-        const email = formulario.querySelector("input[type='email']");
-        const mensaje = formulario.querySelector("textarea");
+        const nombre = document.getElementById("nombreReseña").value;
+        const texto = document.getElementById("textoReseña").value;
 
-        if (
-            nombre.value.trim() === "" ||
-            email.value.trim() === "" ||
-            mensaje.value.trim() === ""
-        ) {
-
+        if (nombre.trim() === "" || texto.trim() === "") {
             mostrarMensaje("⚠️ Completa todos los campos", "error");
             return;
         }
 
-        if (!email.value.includes("@")) {
+        // Crear nueva tarjeta de testimonio
+        const nuevoTestimonio = document.createElement("article");
 
-            mostrarMensaje("⚠️ Ingresa un email válido", "error");
-            return;
-        }
+        nuevoTestimonio.innerHTML = `
+            <h3>${nombre}</h3>
+            <p>"${texto}"</p>
+        `;
 
-        mostrarMensaje("✅ Mensaje enviado correctamente", "exito");
+        // Agregarlo a la sección testimonios
+        const seccionTestimonios = document.querySelector("#testimonios");
 
-        formulario.reset();
+        seccionTestimonios.appendChild(nuevoTestimonio);
+
+        // Limpiar formulario
+        formReseña.reset();
+
+        mostrarMensaje("✅ Reseña agregada correctamente", "exito");
 
     });
 
@@ -133,7 +135,7 @@ function mostrarMensaje(texto, tipo) {
 
 
 /* =====================================================
-   BOTON VOLVER ARRIBA AUTOMATICO
+   BOTON VOLVER ARRIBA
 ===================================================== */
 
 const botonArriba = document.createElement("button");
