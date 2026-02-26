@@ -10,29 +10,34 @@
 
   <!-- SECCIÓN HOJA DE VIDA -->
   <section id="hoja-de-vida">
-    <h2>Mi Hoja de Vida</h2>
+    <div class="cv-container">
+      <img src="assets/img/FotoValen.png" alt="Foto de Valentina" class="perfil-grande">
 
-    <div class="cv-valentina">
-      <img src="img/perfil.jpg" alt="Foto de Valentina" class="perfil">
-      <h3>Valentina Aguirre</h3>
-      <p><strong>Edad:</strong> 22 años</p>
-      <p><strong>Email:</strong> valentina@email.com</p>
-      <p><strong>Formación:</strong> Ingeniería de Sistemas - UCC</p>
-      <p><strong>Habilidades:</strong> HTML, CSS, JavaScript, Git, Flutter</p>
-      <a href="https://github.com/valentinaAguirrehu" target="_blank">Ver mis repositorios</a>
+      <h1 class="nombre-cv">Valentina Aguirre</h1>
+      
+      <p class="cv-info"><strong>Edad:</strong> 22 años</p>
+      <p class="cv-info"><strong>Email:</strong> valentina@email.com</p>
+      <p class="cv-info"><strong>Formación:</strong> Tecnóloga en Análisis y Desarrollo de Software - SENA (2025)</p>
+      <p class="cv-info descripcion">
+        Durante mi formación adquirí conocimientos en bases de datos, desarrollo de aplicaciones con CSS, JavaScript y Java. Además, tengo experiencia con Visual Studio, NetBeans y GitHub para desarrollo y control de versiones de proyectos.
+      </p>
+      <p class="cv-info"><strong>Habilidades:</strong> HTML, CSS, JavaScript, Git, Diseño UI</p>
+      <a class="cv-link" href="https://github.com/valentinaAguirrehu" target="_blank">
+        📂 Mis repositorios
+      </a>
     </div>
   </section>
 
   <!-- SECCIÓN FORMULARIO DE CONTACTO -->
   <section id="formulario-section">
-    <h2>Contáctame</h2>
+    <h2>Contáctame 💬</h2>
     <form id="formulario">
       <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" placeholder="Tu nombre">
+      <input type="text" id="nombre" placeholder="Tu nombre completo">
       <span id="error-nombre" class="error"></span>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="tuemail@ejemplo.com">
+      <input type="email" id="email" placeholder="correo@dominio.com">
       <span id="error-email" class="error"></span>
 
       <button type="submit" id="btnEnviar" disabled>Enviar</button>
