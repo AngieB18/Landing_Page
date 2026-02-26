@@ -179,3 +179,37 @@ window.addEventListener("scroll", () => {
     }
 
 });
+/* =====================================================
+   ACTIVE LINK HIGHLIGHT
+===================================================== */
+
+const links = document.querySelectorAll("nav ul li a");
+
+const sectionObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            // Quitar active a todos
+            links.forEach(link => link.classList.remove("active"));
+
+            // Buscar el link que corresponde a la sección visible
+            const id = entry.target.getAttribute("id");
+            const linkActivo = document.querySelector(`nav ul li a[href="#${id}"]`);
+
+            if (linkActivo) {
+                linkActivo.classList.add("active");
+            }
+
+        }
+
+    });
+
+}, {
+    threshold: 0.4  // se activa cuando el 40% de la sección es visible
+});
+
+document.querySelectorAll("section[id]").forEach(sec => {
+    sectionObserver.observe(sec);
+});

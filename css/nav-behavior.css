@@ -11,3 +11,15 @@ header.navbar-active nav a,
 header.navbar-active nav h1 {
     color: #ffffff;
 }
+/* ================= LINK ACTIVO ================= */
+nav a.active {
+    color: #0071e3;
+    font-weight: 700;
+    border-bottom: 2px solid #0071e3;
+    padding-bottom: 2px;
+}
+
+header.navbar-active nav a.active {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
