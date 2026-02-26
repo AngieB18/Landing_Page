@@ -6,9 +6,14 @@ document.querySelectorAll("nav ul li a").forEach(link => {
 
     link.addEventListener("click", function (e) {
 
+        const href = this.getAttribute("href");
+
+        // permite abrir hojas-vida.html u otros links externos
+        if (!href.startsWith("#")) return;
+
         e.preventDefault();
 
-        const seccion = document.querySelector(this.getAttribute("href"));
+        const seccion = document.querySelector(href);
 
         if (seccion) {
             seccion.scrollIntoView({
@@ -55,42 +60,40 @@ secciones.forEach(section => {
 
 
 /* =====================================================
-   FORMULARIO DE RESEÑAS → SE AGREGA A TESTIMONIOS
+   FORMULARIO PROFESIONAL
 ===================================================== */
 
-const formReseña = document.getElementById("form-reseña");
+const formulario = document.querySelector("form");
 
-if (formReseña) {
+if (formulario) {
 
-    formReseña.addEventListener("submit", function (e) {
+    formulario.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const nombre = document.getElementById("nombreReseña").value;
-        const texto = document.getElementById("textoReseña").value;
+        const nombre = formulario.querySelector("input[type='text']");
+        const email = formulario.querySelector("input[type='email']");
+        const mensaje = formulario.querySelector("textarea");
 
-        if (nombre.trim() === "" || texto.trim() === "") {
+        if (
+            nombre.value.trim() === "" ||
+            email.value.trim() === "" ||
+            mensaje.value.trim() === ""
+        ) {
+
             mostrarMensaje("⚠️ Completa todos los campos", "error");
             return;
         }
 
-        // Crear nueva tarjeta de testimonio
-        const nuevoTestimonio = document.createElement("article");
+        if (!email.value.includes("@")) {
 
-        nuevoTestimonio.innerHTML = `
-            <h3>${nombre}</h3>
-            <p>"${texto}"</p>
-        `;
+            mostrarMensaje("⚠️ Ingresa un email válido", "error");
+            return;
+        }
 
-        // Agregarlo a la sección testimonios
-        const seccionTestimonios = document.querySelector("#testimonios");
+        mostrarMensaje("✅ Mensaje enviado correctamente", "exito");
 
-        seccionTestimonios.appendChild(nuevoTestimonio);
-
-        // Limpiar formulario
-        formReseña.reset();
-
-        mostrarMensaje("✅ Reseña agregada correctamente", "exito");
+        formulario.reset();
 
     });
 
@@ -135,7 +138,7 @@ function mostrarMensaje(texto, tipo) {
 
 
 /* =====================================================
-   BOTON VOLVER ARRIBA
+   BOTON VOLVER ARRIBA AUTOMATICO
 ===================================================== */
 
 const botonArriba = document.createElement("button");

@@ -13,34 +13,100 @@ body {
 }
 
 /* ========= HEADER ========= */
+
 header {
-    background: #ffffff;
-    padding: 20px 8%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+    width: 100%;
 }
 
+/* Contenedor del nav */
 nav {
+    max-width: 1200px;     /* controla el ancho del contenido */
+    margin: 0 auto;        /* lo centra */
+    padding: 18px 8%;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Lista */
 nav ul {
     display: flex;
     gap: 25px;
     list-style: none;
 }
 
+/* Links */
 nav a {
     text-decoration: none;
     color: #1d1d1f;
     font-weight: 500;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
+/* Hover bonito */
 nav a:hover {
+    color: #0071e3;
+}
+
+/* ===== TEAM ===== */
+.team-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.team-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.team-header p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: white;
+    padding: 35px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.team-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.team-role {
+    font-size: 0.9rem;
     color: #0071e3;
 }
 
