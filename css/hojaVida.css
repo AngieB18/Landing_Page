@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ================= RESET ================= */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0f;
+    min-height: 100vh;
+    color: #1a1a2e;
+    overflow-x: hidden;
+}
+
+/* ================= FONDO ANIMADO ================= */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(0, 113, 227, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(99, 44, 185, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 180, 216, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ================= PÁGINA ================= */
+.cv-page {
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ================= TÍTULO PRINCIPAL ================= */
+.cv-page > h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.cv-page > h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #0071e3, #00b4d8);
+    margin: 14px auto 0;
+    border-radius: 2px;
+}
+
+/* ================= TARJETA PRINCIPAL ================= */
+.cv-card {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 0;
+    border-radius: 28px;
+    max-width: 780px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= HEADER DE LA TARJETA ================= */
+.cv-card::before {
+    content: '';
+    display: block;
+    height: 6px;
+    background: linear-gradient(90deg, #0071e3, #00b4d8, #632cb9);
+}
+
+/* ================= CONTENIDO INTERNO ================= */
+.cv-card > * {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.cv-card > h2 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/* Primera sección sin padding top extra */
+.cv-card > h2:first-of-type {
+    padding-top: 45px;
+}
+
+/* ================= TÍTULOS DE SECCIÓN ================= */
+.cv-card h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #0071e3;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-top: 38px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cv-card h2::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #0071e3;
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+/* ================= PÁRRAFOS ================= */
+.cv-card p {
+    font-size: 0.95rem;
+    color: #3a3a4a;
+    line-height: 1.75;
+    margin-bottom: 6px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.cv-card p strong {
+    color: #111;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+/* Grid para datos personales */
+.cv-card > p {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: baseline;
+}
+
+/* ================= LISTAS ================= */
+.cv-card ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 4px;
+}
+
+.cv-card ul li {
+    font-size: 0.95rem;
+    color: #3a3a4a;
+    line-height: 1.8;
+    padding: 5px 0;
+    padding-left: 22px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.cv-card ul li:last-child {
+    border-bottom: none;
+}
+
+.cv-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #0071e3;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ================= LINKS REPOSITORIOS ================= */
+.cv-card ul a {
+    text-decoration: none;
+    color: #0071e3;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px 3px 0;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.cv-card ul a::after {
+    content: '↗';
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+}
+
+.cv-card ul a:hover {
+    color: #005bb5;
+    gap: 10px;
+}
+
+.cv-card ul a:hover::after {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
+/* ================= LINK VOLVER ================= */
+.cv-card > a:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 28px 50px 40px;
+    transition: color 0.2s ease;
+    border-top: 1px solid #f0f0f5;
+    margin-top: 30px;
+}
+
+.cv-card > a:last-child:hover {
+    color: #0071e3;
+}
+
+/* ================= SEPARADOR ENTRE SECCIONES ================= */
+.cv-card h2:not(:first-of-type) {
+    border-top: 1px solid #f0f0f5;
+    padding-top: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+    .cv-page {
+        padding: 40px 15px 60px;
+    }
+
+    .cv-card > *, 
+    .cv-card p,
+    .cv-card ul,
+    .cv-card > a:last-child {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .cv-card > h2:first-of-type {
+        padding-top: 32px;
+    }
+
+    .cv-card > p {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-card h2 {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
